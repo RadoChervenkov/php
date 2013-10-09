@@ -1,5 +1,6 @@
 <?php
 session_start();
+$title = 'Вход';
 include 'header.php';
 include 'database.php';
 
@@ -22,6 +23,12 @@ if ($_POST) {
     if ($num_rows > 0) {
         $_SESSION['isLogged'] = true;
         $_SESSION['username'] = $_POST['username'];
+        
+        $result = mysqli_fetch_assoc($query);
+        if ($result['username'] == 'admin') {
+            $_SESSION['isAdmin'] = true;
+        }
+        
         header('Location: messages.php');
         exit();
     } else {
@@ -40,6 +47,13 @@ if ($_POST) {
 <br />
 <br />
 <a href="register.php">Регистрирай се</a>
+<br />
+<br />
+<h1>ВАЖНО</h1>
+<p>Използвани потребител и парола за базата данни: root , без парола. Може да се променят от файла database.php</p>
+<br/>
+<p>Администраторски акаунт за триене: admin, парола qwerty</p>
+    
 
 <?php
 include 'footer.php';

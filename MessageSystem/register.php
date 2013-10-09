@@ -1,6 +1,8 @@
 <?php
-include 'database.php';
+$title = 'Регистрация';
 include 'header.php';
+include 'database.php';
+
 
 if ($_POST) {
     $error = false;
