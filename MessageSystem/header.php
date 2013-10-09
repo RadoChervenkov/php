@@ -8,3 +8,4 @@ mb_internal_encoding('UTF-8');
         <title></title>
     </head>
     <body>
+        <a href="logout.php">Изход</a><br />

@@ -1,7 +1,7 @@
 <?php
 session_start();
-include 'database.php';
 include 'header.php';
+include 'database.php';
 
 if (isset($_SESSION['isLogged'])) {
     header('Location: messages.php');
@@ -21,6 +21,7 @@ if ($_POST) {
     $num_rows = mysqli_num_rows($query);
     if ($num_rows > 0) {
         $_SESSION['isLogged'] = true;
+        $_SESSION['username'] = $_POST['username'];
         header('Location: messages.php');
         exit();
     } else {
